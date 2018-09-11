@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head><style>html, body, #map { width: 100%; height: 100%; }</style></head>
+<body>
+<div id="map"></div>
+
+<script>
+function initMap() {
+
+ if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+ var request = {
+        origin: new google.maps.LatLng(pos), // 出発地
+        destination: new google.maps.LatLng(33.8870785,130.8841405), // 目的地
+        waypoints: [ // 経由地点(指定なしでも可)
+           
+        ],
+        travelMode: google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
+    };
+    var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
+    var r = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+        map: map, // 描画先の地図
+        preserveViewport: true, // 描画後に中心点をずらさない
+    });
+    // ルート検索
+    d.route(request, function(result, status){
+        // OKの場合ルート描画
+        if (status == google.maps.DirectionsStatus.OK) {
+            r.setDirections(result);
+        }
+    });
+            infoWindow.setPosition(pos);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+        
+
+    // マップの生成
+    var map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(33.8870785,130.8841405), // マップの中心
+        zoom: 14 // ズームレベル
+    });
+
+
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+       
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+  
+    
+   
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7p2c3F_w1yf8XW5be_xiZScnsG56ydK0&callback=initMap" async defer></script>
+</body>
+</html>" async defer></script>
+</body>
+</html>
