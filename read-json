@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang = "ja">
+<head>
+
+	
+	
+	<meta charset = "utf-8">
+	<title>jsonを使う</title>
+	<script src = "jquery-3.3.1.min.js"></script>
+	<script>
+	var dat = [];
+	
+	$(function(){
+	console.log("jQueryの処理開始");
+		$("li").css("backgroundColor","yellow");
+		$("#title").css({color:"blue",fontSize:"400%"});
+		$("#btn1").click(function(){
+			$("#myImg").attr("src","Images/Hades.png");
+		})
+		console.log("jQueryの処理終了");
+	})
+	
+	$.ajaxSetup({async:false});
+	
+		jQuery.getJSON('a.json')
+			.done(function(json){
+				for(var i=0; i<json.length; i++){
+					dat.push({
+					'name':json[i].name,
+					'id':json[i].id
+					});
+					console.log("読み込み完了");
+				};
+				for(var i=0;i<dat.length;i++){
+					console.log("a"+dat[i].name);
+					console.log("s"+dat[i].id);
+				};
+				console.log("出力完了");
+				
+			})
+			.fail(function(){
+				console.log('fail');
+			})
+			.always(function(){
+				console.log(dat[0]['id']);
+				console.log("getJSONの全処理完了");
+			})
+			
+	$.ajaxSetup({async:true});
+	function Write(){
+		for(var i=0;i<dat.length;i++){
+					document.write("<li>",dat[i].id+"  名前:"+dat[i].name,"</li>");
+				};
+	}
+	</script>
+</head>
+
+<body>
+	<form><p>
+		<input type="button" id="btn1" value="変更">
+	</p></form>
+	
+	<h1 id ="title">Javascript入門</h1>
+	<ul>
+		<li>Javascriptの基礎知識</li>
+		<li>初めてのプログラム</li>
+		</ul>
+		
+	<img id="myImg" src="Images/harisenn.jpeg" alt = "エラッタ">
+	<script>
+	console.log("body scriptの処理開始");
+
+	document.write("<h1>","ハリネズミ","</h1>");
+	Write();
+	console.log("body scriptの処理終了");
+	</script>
+</body>
+</html>
