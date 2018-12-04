@@ -1,0 +1,131 @@
+[	
+	{
+		"ID":1,
+		"name":"green・green・vilage",
+		"PostalCode":"802-0002",
+		"address":"福岡県北九州市小倉北区京町４丁目５−１",
+		"PhoneNumber":"093-521-1881",
+		"CoorX":33.8853066,
+		"CoorY":130.8854933
+	},
+	{
+		"ID":2,
+		"name":"BUTARBAR きれんじ家",
+		"PostalCode":"802-0077",
+		"address":"福岡県北九州市小倉北区馬借１丁目１０−２ 住所 日之出 ビル 1Ｆ",
+		"PhoneNumber":"050-5596-1950",
+		"CoorX":33.884634,
+		"CoorY":130.8782809
+	},
+	{
+		"ID":3,
+		"name":"Parts Of Life",
+		"PostalCode":"802-0006",
+		"address":"福岡県北九州市小倉北区魚町３丁目１−１１ クロスロード 1F",
+		"PhoneNumber":"093-482-3737",
+		"CoorX":3,
+		"CoorY":130
+
+	},
+	{
+		"ID":4,
+		"name":"うどん秋月",
+		"PostalCode":"802-0077",
+		"address":"福岡県北九州市小倉北区馬借2-1-22 エイトピア花房1F",
+		"PhoneNumber":"093-512-1828",
+		"CoorX":3,
+		"CoorY":130
+	},
+	{
+		"ID":5,
+		"name":"Organic Cafe Dio",
+		"PostalCode":"802-0077",
+		"address":"福岡県北九州市小倉北区馬借１丁目１６−１５",
+		"PhoneNumber":"093-555-7377",
+		"CoorX":33.878763,
+		"CoorY":130.8755083
+	},
+	{
+		"ID":6,
+		"name":"cafe CACTUS",
+		"PostalCode":"802-0006",
+		"address":"福岡県北九州市小倉北区魚町３丁目３−１２",
+		"PhoneNumber":"093-513-1102",
+		"CoorX":33.8827634,
+		"CoorY":130.8779473
+	},
+	{
+		"ID":7,
+		"name":"インドキッチン　ギタンジャリ",
+		"PostalCode":"803-0812",
+		"address":"福岡県北九州市小倉北区室町２丁目１１−４",
+		"PhoneNumber":"050-5890-9028",
+		"CoorX":33.8876438,
+		"CoorY":130.8717857
+	},
+	{
+		"ID":8,
+		"name":"サンドイッチファクトリー OCM",
+		"PostalCode":"802-0007",
+		"address":"福岡県 北九州市 小倉北区船場町3-6 近藤別館 ２Ｆ",	
+		"PhoneNumber":"093-522-5973",
+		"CoorX":3,
+		"CoorY":130
+	},
+	{
+		"ID":9,
+		"name":"だるま堂",
+		"PostalCode":"802-0006",
+		"address":"福岡県北九州市小倉北区魚町1-4-17鳥町食堂街",
+		"PhoneNumber":"093-531-6401",
+		"CoorX":3,
+		"CoorY":130	
+	},
+	{
+		"ID":10,
+		"name":"ラ・ファリーナ",
+		"PostalCode":"802-0077",
+	"address":"福岡県北九州市小倉北区馬借3-2-4 小川レジデンス2 1F",
+	"PhoneNumber":"093-521-2676",
+	"CoorX":3,
+	"CoorY":130
+	},
+	{
+		"ID":11,
+		"name":"レストラン タカヤマ",
+		"PostalCode":"802-0002",
+		"address":"福岡県北九州市小倉北区京町２丁目１−５",
+		"PhoneNumber":"093-521-8776",
+		"CoorX":3,
+		"CoorY":130
+	},
+	{
+		"ID":12,
+		"name":"四方平",
+		"PostalCode":"802-0002",
+		"address":"福岡県北九州市小倉北区京町１丁目２−２２",
+		"PhoneNumber":"093-521-0323",
+		"CoorX":3,
+		"CoorY":130
+
+	},
+	{
+		"ID":13,
+		"name":"中華そば藤王",
+		"PostalCode":"802-0006",
+		"address":"福岡県北九州市小倉北区 魚町２丁目４−１８ フクスケビル 2F",
+		"PhoneNumber":"093-511-2800",
+		"CoorX":3,
+		"CoorY":130
+
+	},
+	{
+		"ID":14,
+		"name":"鉄板焼きバール",
+		"PostalCode":"802-0006",
+		"address":"福岡県北九州市小倉北区 魚町２丁目６−５ ＳＩビル２F",
+		"PhoneNumber":"093-512-9519",
+		"CoorX":3,
+		"CoorY":130.78786958
+	}
+]
