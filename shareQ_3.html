@@ -36,6 +36,7 @@
 					'name'      :json[i].name,
 					'PostalCode':json[i].PostalCode,
 					'address'   :json[i].address,
+					'PhoneNumber':json[i].PhoneNumber,
 					'CoorX'     :json[i].CoorX,
 					'CoorY'     :json[i].CoorY
 					});
@@ -59,7 +60,7 @@
         var doc0 = document.getElementById("div0");
 
         var string = "店名: " + "「" + dat[index].name + "」"+"<br>"
-                  +"  郵便番号: "+dat[index].PostalCode+"<br>"+
+                  +"電話番号: "+dat[index].PhoneNumber+"<br>"+
                   "住所: "+dat[index].address+"<br>"+
                   "郵便番号: 〒"+dat[index].PostalCode;
 
