@@ -53,17 +53,14 @@
 			})
 			
 	$.ajaxSetup({async:true});
-
     //画像をクリックしたときの処理です
       function Draw(index){
         //真ん中の四角形部分のタブIDを取得
         var doc0 = document.getElementById("div0");
-
         var string = "店名: " + "「" + dat[index].name + "」"+"<br>"
                   +"電話番号: "+dat[index].PhoneNumber+"<br>"+
                   "住所: "+dat[index].address+"<br>"+
                   "郵便番号: 〒"+dat[index].PostalCode;
-
 		doc0.innerHTML = string;
     infoWindow.setContent('Cake is lie.');
 	}
@@ -219,4 +216,4 @@
    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlDcO6J05Iy5KNhMZ6B12JnjBRU6lScZs&callback=initMap"
     async defer></script>
   </body>
-</html>
+  </html>
