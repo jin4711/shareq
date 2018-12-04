@@ -5,7 +5,226 @@
     <title>shareQ</title>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <style>
+    #map{<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>shareQ</title>
+    <script src = "jquery-3.3.1.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <style>
     #map{
+      width: auto;
+      height: 500px;
+    }
+    </style>
+    <script>
+  var dat = [];
+	
+  //JSONの読み込み開始
+  $(function(){
+	console.log("jQueryの処理開始");
+		$("li").css("backgroundColor","yellow");
+		$("#title").css({color:"blue",fontSize:"400%"});
+		$("#btn1").click(function(){
+			$("#myImg").attr("src","Images/Hades.png");
+		})
+		console.log("jQueryの処理終了");
+	})
+	
+	$.ajaxSetup({async:false});
+	
+    //ここで読み込んでる
+		jQuery.getJSON('data.json')
+			.done(function(json){
+				for(var i=0; i<json.length; i++){
+					dat.push({
+					'ID'        :json[i].ID,
+					'name'      :json[i].name,
+					'PostalCode':json[i].PostalCode,
+					'address'   :json[i].address,
+					'CoorX'     :json[i].CoorX,
+					'CoorY'     :json[i].CoorY
+					});
+          console.log("読み込み完了");
+				};
+				
+			})
+      //読み込みミスったとき
+			.fail(function(){
+				console.log('fail');
+			})
+			.always(function(){
+				console.log("getJSONの全処理完了");
+			})
+			
+	$.ajaxSetup({async:true});
+
+    //画像をクリックしたときの処理です
+      function Draw(index){
+        //真ん中の四角形部分のタブIDを取得
+        var doc0 = document.getElementById("div0");
+
+        var string = "店名: " + "「" + dat[index].name + "」"+"<br>"
+                  +"  郵便番号: "+dat[index].PostalCode+"<br>"+
+                  "住所: "+dat[index].address+"<br>"+
+                  "郵便番号: 〒"+dat[index].PostalCode;
+
+		doc0.innerHTML = string;
+    infoWindow.setContent('Cake is lie.');
+	}
+  </script>
+  </head>
+  <body>
+  
+   <div class="button" style="margin:10px;">
+     <a href="shareQ_1.html"><span class="back" style="text-align:left;"><i class="fas fa-arrow-left fa-fw fa-4x" ></i></span><a>
+   </div>
+   
+
+    <div class="images" style="overflow:auto;  height:350px;  white-space:nowrap; margin-top:50px; margin-bottom:30px;">
+     <div style="width2000px;">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1O0b2J34jnIGzPnHAoia6ivqIoQDjBlc7" onclick =  'Draw(0)' alt="greengreenvillage_ピザ"   width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1gdJkteAqOdhO9v30lvVA6fm9N11CuCXI" onclick =  'Draw(0)' alt="greengreenvillage_かき氷_宇治抹茶" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1XoXEtVlTgGhLT3TD7SVJjXp0WH33RGqt" onclick =  'Draw(0)' alt="greengreenvillage_かき氷_シロップ"  width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1WXEJWhr4HcXcZ7Mu3AdQYog10qAVKRCi" onclick =  'Draw(0)' alt="greengreenvillage_かき氷" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1RCWuqGtO0mbgWd-tLIel7TLcM_r-WL7K" onclick =  'Draw(0)' alt="greengreenvillage_かき氷_イチゴ"   width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1fgb3FxKF6JJah1W2iesT3DYUx8g2Bt9k" onclick =  'Draw(1)' alt="Butabar きれんじ家_ピッグ＆チップス"  width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1-rySEQKdQjde9ETtn6vdqla2ld5l_B0z" onclick =  'Draw(1)' alt="Butabar きれんじ家_フライ盛り合わせ"   width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1qCYFZt282-YWswRxJAWj4ST1C3FPbg9s" onclick =  'Draw(1)' alt="Butabar きれんじ家_タパス3種盛り"  width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1seb4ZYcKtE0MrKiFWUk1NRLwe5Z1W5HV" onclick =  'Draw(1)' alt="Butabar きれんじ家_コーヒー＆オレンジジュース" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1-X_TGrTGYPTfIHVx2ISgHGpD94ERdR7m" onclick =  'Draw(1)' alt="Butabar きれんじ家_煮込みハンバーグ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=17IcL1ODeyHX0EJ2fBSOHA7aG-8L-59dQ" onclick =  'Draw(1)' alt="Butabar きれんじ家_カツカレー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1tFTGvyOBTJ7nRqYHXWZQHff42UZFoF_E" onclick =  'Draw(1)' alt="Butabar きれんじ家_メニュー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1E6LF0zowad2E_35GbX0fnxdqWYonmp6f" onclick =  'Draw(1)' alt="Butabar きれんじ家_鉄板焼き" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=10Kb3yvxM9KozAluiJQiqKGxsFWorQJMA" onclick =  'Draw(1)' alt="Butabar きれんじ家_スペアリブ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1eFVA1ryPvVBpPnEj83Bal1XK_1khtjTX" onclick =  'Draw(1)' alt="Butabar きれんじ家_ポテトとベーコンの鉄板焼き" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1PmUkzcaKZ6GwokJU5MfVdGr6KZppVVxz" onclick =  'Draw(1)' alt="Butabar きれんじ家_鉄板焼き_2" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=183IsplhcXOUC11MMaFxAUrX9XkFF-YQ0" onclick =  'Draw(2)' alt="Parts Of Life_コーヒー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1wRsPiCiYrXJjykgIDVBK676nOmCUZ2WJ" onclick =  'Draw(2)' alt="Parts Of Life_ラテアート_リーフ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1HinL3wHKnjpUGpvzREzjvSRmCDHBVGBm" onclick =  'Draw(2)' alt="Parts Of Life_ドリンク" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=13Upr-nzbG5X5rp9-__EmzQJluXS5wP6x" onclick =  'Draw(2)' alt="Parts Of Life_ラテアート_クモの巣" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1lL0G7M34-kz9glY0nk9kkHra3wjWXDiF" onclick =  'Draw(2)' alt="Parts Of Life_ラテアート_リーフ_2" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1yixeoodD_VMt9eeGlWrqO3uNvNhvlPr6" onclick =  'Draw(2)' alt="Parts Of Life_ワイン" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1CYJnCF24CSYZALtSnFjk9IR0sC1Nw712" onclick =  'Draw(2)' alt="Parts Of Life_メニュー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=14LmPD22NaqEDeO6W_77xmRNWHM8Bs2zF" onclick =  'Draw(2)' alt="Parts Of Life_カレー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1CcYjCUTUW_kW3m25TmeD8WCCKB29USyA" onclick =  'Draw(2)' alt="Parts Of Life_ドリア" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1ru-I_ZRlLSCYGfTm50qMDDBzvMJWavDX" onclick =  'Draw(2)' alt="Parts Of Life_フレンチトースト" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=11twr4EeQUrj-bHdWA0A7wPS_rHC9sqHE" onclick =  'Draw(2)' alt="Parts Of Life_サンド" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=14ElnjejI5YbLdn7UPmE9YsDMmEcIhxYz" onclick =  'Draw(3)' alt="うどん秋月_かつ丼" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1NlYdbZA1frPAPP5NuOJmmKdKMQjpJmet" onclick =  'Draw(3)' alt="うどん秋月_漬物" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=13zrLUMKeHB_FKGUOqgVirv48rYj9cyaL" onclick =  'Draw(3)' alt="うどん秋月_黒ごま坦々うどん" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1qF-UHzEsIFV0j-mhR35h61MqhjWl3JuQ" onclick =  'Draw(3)' alt="うどん秋月_きのこうどん" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1dKwcFubT0-RPkvGKbOX5ASt3M2lSB1hy" onclick =  'Draw(4)' alt="オーガニックカフェ Dio_メニュー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1uBfZQuL_0zkbRTWHDwKuIThMkEvdrzSt" onclick =  'Draw(4)' alt="オーガニックカフェ Dio_店内" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1akX1xoQTJpIim5sOSa6EAjv8Ok6FxWkI" onclick =  'Draw(4)' alt="オーガニックカフェ Dio_ジュース_赤" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1Zsv_h5CVYFvJzIwtNPffenijzx9JyZKb" onclick =  'Draw(4)' alt="オーガニックカフェ Dio_ジュース_緑" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1y-yh_Pgev3X0zgByxNZNfQP49AGm4krp" onclick =  'Draw(4)' alt="オーガニックカフェ Dio_サンドウィッチ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1oO3xWKS4D-yJ-mV2YoKHnCzxOUGnpOUI" onclick =  'Draw(4)' alt="オーガニックカフェ Dio_外装" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1q1bsI5BSqzsrykI8tDmCkrY6ULcV1kf8" onclick =  'Draw(5)' alt="カフェ カクタス_メニュー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1rd1OvogeyGQJkM1X4u_XGSm0AKih9Ej3" onclick =  'Draw(5)' alt="カフェ カクタス_ラテアート_猫" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1PjJjMqMi6AlVISu80SA1xyFRfRGAmaFC" onclick =  'Draw(5)' alt="カフェ カクタス_ラテアート_クモ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1V-5JPkeBy6yXVaMo6bhTsUhjW_kBXCAd" onclick =  'Draw(5)' alt="カフェ カクタス_エスプレッソ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=19tG7_D45T5KQHboZza_WQfcHWnW82Goe" onclick =  'Draw(5)' alt="カフェ カクタス_チーズケーキ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1Jo5x_0izgYLsj2Y7hqUYA9Y6PoZSRGaX" onclick =  'Draw(6)' alt="ギタンジャリ_看板" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1iyM8cMZWxFTxE65UKX1q_8XM7AX8Ko1j" onclick =  'Draw(6)' alt="ギタンジャリ_外装" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1AQolzlhai_TZpgZPO5bQANyWltX0pR2l" onclick =  'Draw(6)' alt="ギタンジャリ_内装" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1eo_0ZZ0swPApqebGhhuzw3AViYxI0RmL" onclick =  'Draw(6)' alt="ギタンジャリ_内装_2" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1Z_q8o3ZmycxM9AJHjZaJ2bjEIjoNzMYM" onclick =  'Draw(6)' alt="ギタンジャリ_メニュー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1ae2VtXydza48s2ynK6rhHwn-iox2EwjO" onclick =  'Draw(6)' alt="ギタンジャリ_チキンカレー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1Dopg9uXD44N-b5a-juUAMqvjJOcunv0K" onclick =  'Draw(6)' alt="ギタンジャリ_キーマエビカレー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1fez1cX9Q83z_Ed3R1fLYP5wPo7grAXr5" onclick =  'Draw(6)' alt="ギタンジャリ_ナンとカレー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1sHO6SPCfg30BW_B9iMeiP5TFOUPD2bnj" onclick =  'Draw(6)' alt="ギタンジャリ_Wカレー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1_Szj1LvypMAIzLp0eDFKIroMbvZ3h8I-" onclick =  'Draw(6)' alt="ギタンジャリ_タンドリーチキンカレー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1Ikb71C7eO3GFoe6Ybb1TW3mvTGFn3fOv" onclick =  'Draw(7)' alt="サンドイッチファクトリー OCM_看板" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1axgXWd4lzU4DlUOjYRHDCE1Il_lL18ab" onclick =  'Draw(7)' alt="サンドイッチファクトリー OCM_具材" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1wS91TzYyE8XXDBBXHhRV8sh31BEFDHlV" onclick =  'Draw(7)' alt="サンドイッチファクトリー OCM_内装" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1k8LRsqL6bvKvttLbXTMoRPirjn_NiYH0" onclick =  'Draw(7)' alt="サンドイッチファクトリー OCM_カツサンド" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=16J3OQNGrgxARF2WaGn0NWT2fEeo-TeqN" onclick =  'Draw(7)' alt="サンドイッチファクトリー OCM_ハムサンド" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1_7fNkdJiTtrQ-EvHE30k-2mR-7ulrNDX" onclick =  'Draw(7)' alt="サンドイッチファクトリー OCM_肉サンド" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1IJnSBk5dki4EghQzCrI4ipggusOsd3Lf" onclick =  'Draw(7)' alt="サンドイッチファクトリー OCM_クリームソーダ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1KoNrMVEsa6Z9MpofzfOTZhQbAcKJK4-g" onclick =  'Draw(7)' alt="サンドイッチファクトリー OCM_ドリンク" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1Q3dRTL5MNOF8uzc6ZdDx81uhsOF1wyEv" onclick =  'Draw(8)' alt="だるま堂_外装" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=151zAGRbMYTMs5Z4zMJMmaK5iAqC1T0Qv" onclick =  'Draw(8)' alt="だるま堂_内装" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1DvL1rmsOv4r2y00zk7SsTeZDO5zOPV3p" onclick =  'Draw(8)' alt="だるま堂_サイン" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1KFbLsSS52OP_fFcISvtku1oAvsSJTewZ" onclick =  'Draw(8)' alt="だるま堂_焼きそば" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1pc1CXxaRn20n7aXaN-P-LWN_uZ-cDdr6" onclick =  'Draw(9)' alt="ラ・ファリーナ_牡蠣のパスタ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1S1EsHptusBpi6LhBGlGHln2zIb5f4bjJ" onclick =  'Draw(9)' alt="ラ・ファリーナ_盛り合わせ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1euAvBfQfcF2u76-ADHOkuSvrcqcFQx94" onclick =  'Draw(9)' alt="ラ・ファリーナ_ポタージュ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=10mKfGLWR5gvnG_KDqPOuQcbQNuSjHxV6" onclick =  'Draw(9)' alt="ラ・ファリーナ_エビのパスタ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1qhBDTPqF-K9ZMVwIWexzSryIHujgxpRO" onclick =  'Draw(9)' alt="ラ・ファリーナ_お肉ときのこ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=14V_RuJMubHhVZwFPQwhJbFVEg5mWvvu7" onclick =  'Draw(9)' alt="ラ・ファリーナ_デザート" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1QPTh7j0OX42LZC7NzCC_-SNHXg2MJfG-" onclick =  'Draw(10)' alt="レストラン タカヤマ_外装" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1dYWcasLgt-lQqA55gTLyYcDtiWyQBNY6" onclick =  'Draw(10)' alt="レストラン タカヤマ_外装_2" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1N_MTS4vl6QOYXs-XbBu7TzRVk0I2GMTV" onclick =  'Draw(10)' alt="レストラン タカヤマ_内装" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1V0bAW-kTNBBlv8agJmKkUFHhDwZ95BpA" onclick =  'Draw(10)' alt="レストラン タカヤマ_メニュー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=16gi8GayJCMtiCZpF5nog-HFuUoZNoYSE" onclick =  'Draw(10)' alt="レストラン タカヤマ_メニュー_2" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1dLgLkKBP_ubOOMVQZ1leLm1U1E55171t" onclick =  'Draw(10)' alt="レストラン タカヤマ_ポークソテー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1BGRStgO5Ar7XhOLJcHZx5qPZSNscndVA" onclick =  'Draw(10)' alt="レストラン タカヤマ_ポークソテー日本風" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1zsPcvaUvgu0B6O12FXkgLGL93z_WoISe" onclick =  'Draw(10)' alt="レストラン タカヤマ_スパゲティナポリタン" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1q5TyHaFtumBM7Hw5lArharwXJr81P2zf" onclick =  'Draw(10)' alt="レストラン タカヤマ_カツカレー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1xoctxrm4Hi-hOCvz4-84M99wFQPk_-tM" onclick =  'Draw(10)' alt="レストラン タカヤマ_オムライス" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1X5B3payRx5NHqDUb5_3HtQIsobLR9sds" onclick =  'Draw(10)' alt="レストラン タカヤマ_カツレツ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1B6AvEa99byn9_Jf2do-2bk8h7L0_7IwO" onclick =  'Draw(11)' alt="四方平_外装" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1ALKjqkiWnYb5FJIMWdvrGexTVTaFXcmk" onclick =  'Draw(11)' alt="四方平_ラーメン" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1hs60tzPI2jHIbjifatdAqAvodirc_QBo" onclick =  'Draw(11)' alt="四方平_ラーメンと鉄火巻" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1cp-n7iX_BPrcL_AbWnERLqVXUQm6JXBw" onclick =  'Draw(11)' alt="四方平_ちゃんぽん" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=17NYds7JbD0UvhaKNCcnOj5hjBdQVvcG_" onclick =  'Draw(12)' alt="中華そば藤王_中華そば" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=19BIyXEWhuxViVeoScpy-az-4ghhOgi72" onclick =  'Draw(12)' alt="中華そば藤王_メニュー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1t9M4jdP8MwRv-AJFIJuo88OaUp4nKkVT" onclick =  'Draw(12)' alt="中華そば藤王_中華そばとチャーハン" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1EmbfLa0n-ngP8k75VDBn0JXhDHkSnpPB" onclick =  'Draw(12)' alt="中華そば藤王_ちゃんぽん" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1Fw8qOnWQzHx7dTFQxuutkJiZoEitdtxo" onclick =  'Draw(13)' alt="鉄板焼きバール ピアチェーレ_ハンバーグプレート" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1a87ZXNK2aqQztzjqJTx67w8BdWNVJXF_" onclick =  'Draw(13)' alt="鉄板焼きバール ピアチェーレ_カレーライス" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1WX_uisWpvkoykXUalQDjurjZHyKQLxMM" onclick =  'Draw(13)' alt="鉄板焼きバール ピアチェーレ_ベジタブルカレー" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1KLdMON4992CE0nB8_wolGfEH8K45xv0S" onclick =  'Draw(13)' alt="鉄板焼きバール ピアチェーレ_ビュッフェ" width="400" height="320">
+     <img src="https://drive.google.com/uc?export=view&amp;id=1XVr0vG6yQhffSLeYCIOWryXJk2R79Qr5" onclick =  'Draw(13)' alt="鉄板焼きバール ピアチェーレ_メニュー" width="400" height="320">
+    </div>
+   </div>
+   
+   <div>
+      <center><p id="div0" style = "text-align:left; border-width:2px; border-color:black; border-style:solid; width:600px; height:300px;">
+         ここに情報が表示されます
+        </p></center>
+   </div>
+   
+   <div class="button" style="margin:30px;">
+     <span class="ate" style="float:right;"><i class="fas fa-utensils fa-5x"></i></span>
+   </div>
+   
+   <div id="map"></div>
+   <script>
+   function initMap() {
+     var map = new google.maps.Map(document.getElementById('map'), {
+       center: {lat: -34.397, lng: 150.644},
+       zoom:20
+     });
+ var infoWindow = new google.maps.InfoWindow({map: map});
+     if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+  handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+   </script>
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlDcO6J05Iy5KNhMZ6B12JnjBRU6lScZs&callback=initMap"
+    async defer></script>
+  </body>
       width: auto;
       height: 500px;
     }
