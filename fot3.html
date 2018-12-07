@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>shareQ</title>
+    <script src = "jquery-3.3.1.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <style>
+    #map{
+      width: auto;
+      height: 600px;
+    }
+    </style>
+
+     <script src="background.js"></script>
+    <script>
+    
+    	
+    
+    
+  var dat = [];
+
+  //JSONの読み込み開始
+  $(function(){
+	console.log("jQueryの処理開始");
+		$("li").css("backgroundColor","yellow");
+		$("#title").css({color:"blue",fontSize:"400%"});
+		$("#btn1").click(function(){
+			$("#myImg").attr("src","Images/Hades.png");
+		})
+		console.log("jQueryの処理終了");
+	})
+
+	$.ajaxSetup({async:false});
+
+    //ここで読み込んでる
+		jQuery.getJSON('data.json')
+			.done(function(json){
+				for(var i=0; i<json.length; i++){
+					dat.push({
+					'ID'        :json[i].ID,
+					'name'      :json[i].name,
+					'PostalCode':json[i].PostalCode,
+					'address'   :json[i].address,
+					'PhoneNumber':json[i].PhoneNumber,
+					'CoorX'     :json[i].CoorX,
+					'CoorY'     :json[i].CoorY
+					});
+          console.log("読み込み完了");
+				};
+
+			})
+      //読み込みミスったとき
+			.fail(function(){
+				console.log('fail');
+			})
+			.always(function(){
+				console.log("getJSONの全処理完了");
+			})
+
+	$.ajaxSetup({async:true});
+    //画像をクリックしたときの処理です
+      function Draw(index){
+        //真ん中の四角形部分のタブIDを取得
+        var doc0 = document.getElementById("div0");
+        var string = "店名: " + "「" + dat[index].name + "」"+"<br>"
+                  +"電話番号: "+dat[index].PhoneNumber+"<br>"+
+                  "住所: "+dat[index].address+"<br>"+
+                  "郵便番号: 〒"+dat[index].PostalCode;
+		doc0.innerHTML = string;
+    infoWindow.setContent('Cake is lie.');
+	}
+  </script>
+  </head>
+  <body>
+
+    <div id="floating-panel" style="overflow:auto;  height:424px;  white-space:normal; margin-top:10px;">
+      <div class="button" style="margin:10px;">
+          <a href="index.html"><span class="back" style="text-align:left;"><i class="fas fa-arrow-left fa-fw fa-4x" ></i></span></a>
+        </div>
+
+      <div style="width:2000px; overflow:auto;">
+    <!--<div id="submit">-->
+         <div class="greengreenvillage"  onclick='root("福岡県北九州市小倉北区京町4丁目5-1 greengreenvillage");Draw(0)'>
+          <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1O0b2J34jnIGzPnHAoia6ivqIoQDjBlc7" alt="greengreenvillage_ピザ"   width="400" height="360">
+          <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1gdJkteAqOdhO9v30lvVA6fm9N11CuCXI" alt="greengreenvillage_カキ氷_宇治抹茶" width="400" height="360">
+          <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1XoXEtVlTgGhLT3TD7SVJjXp0WH33RGqt" alt="greengreenvillage_カキ氷_シロップ"  width="400" height="360">
+          <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1WXEJWhr4HcXcZ7Mu3AdQYog10qAVKRCi" alt="greengreenvillage_カキ氷" width="400" height="360">
+          <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1RCWuqGtO0mbgWd-tLIel7TLcM_r-WL7K" alt="greengreenvillage_カキ氷_イチゴ"   width="400" height="360">
+
+         </div>
+
+        <div class="キレンジ家"onclick='root("福岡県北九州市小倉北区馬借1丁目10-2 BUTABARキレンジ家" );Draw(1)'>
+                     <input id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1fgb3FxKF6JJah1W2iesT3DYUx8g2Bt9k" alt="Butabar キレンジ家_ピッグ&チップス"  width="400" height="360">
+            <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1-rySEQKdQjde9ETtn6vdqla2ld5l_B0z" alt="Butabar キレンジ家_フライ盛リ合ワセ"   width="400" height="360">
+            <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1qCYFZt282-YWswRxJAWj4ST1C3FPbg9s" alt="Butabar キレンジ家_タパス3種盛リ"  width="400" height="360">
+            <input  id="submit" type="image"  src="https://drive.google.com/uc?export=view&amp;id=1seb4ZYcKtE0MrKiFWUk1NRLwe5Z1W5HV"     alt= "Butabar キレンジ家_コーヒー&オレンジジュース" width="400" height="360">
+            <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1-X_TGrTGYPTfIHVx2ISgHGpD94ERdR7m"  alt="Butabar キレンジ家_煮込ミハンバーグ" width="400" height="360">
+            <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=17IcL1ODeyHX0EJ2fBSOHA7aG-8L-59dQ"  alt="Butabar キレンジ家_カツカレー" width="400" height="360">
+            <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1tFTGvyOBTJ7nRqYHXWZQHff42UZFoF_E"  alt="Butabar キレンジ家_メニュー" width="400" height="360">
+            <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1E6LF0zowad2E_35GbX0fnxdqWYonmp6f"  alt="Butabar キレンジ家_鉄板焼キ" width="400" height="360">
+            <input id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=10Kb3yvxM9KozAluiJQiqKGxsFWorQJMA"  alt="Butabar キレンジ家_スペアリブ" width="400" height="360">
+            <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1eFVA1ryPvVBpPnEj83Bal1XK_1khtjTX"  alt="Butabar キレンジ家_ポテトトベーコンノ鉄板焼キ" width="400" height="360">
+            <input  id="submit" type="image" src="https://drive.google.com/uc?export=view&amp;id=1PmUkzcaKZ6GwokJU5MfVdGr6KZppVVxz"  alt="Butabar キレンジ家_鉄板焼キ_2" width="400" height="360">
+          </div>
+
+          <div class="Parts Of Life"onclick='root("福岡県北九州市小倉北区魚町3丁目1-11 Parts Of Life" );Draw(2)'>
+            <input  id="pol1" type="image"   src="https://drive.google.com/uc?export=view&amp;id=183IsplhcXOUC11MMaFxAUrX9XkFF-YQ0"  alt="Parts Of Life_コーヒー" width="400" height="360">
+            <input id="pol2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1wRsPiCiYrXJjykgIDVBK676nOmCUZ2WJ"  alt="Parts Of Life_ラテアート_リーフ" width="400" height="360">
+            <input  id="pol3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1HinL3wHKnjpUGpvzREzjvSRmCDHBVGBm"  alt="Parts Of Life_ドリンク" width="400" height="360">
+            <input  id="pol4" type="image" src="https://drive.google.com/uc?export=view&amp;id=13Upr-nzbG5X5rp9-__EmzQJluXS5wP6x"  alt="Parts Of Life_ラテアート_クモノ巣" width="400" height="360">
+            <input  id="pol5" type="image" src="https://drive.google.com/uc?export=view&amp;id=1lL0G7M34-kz9glY0nk9kkHra3wjWXDiF"  alt="Parts Of Life_ラテアート_リーフ_2" width="400" height="360">
+            <input  id="pol6" type="image" src="https://drive.google.com/uc?export=view&amp;id=1yixeoodD_VMt9eeGlWrqO3uNvNhvlPr6"  alt="Parts Of Life_ワイン" width="400" height="360">
+            <input  id="pol7" type="image" src="https://drive.google.com/uc?export=view&amp;id=1CYJnCF24CSYZALtSnFjk9IR0sC1Nw712"  alt="Parts Of Life_メニュー" width="400" height="360">
+            <input  id="pol8" type="image" src="https://drive.google.com/uc?export=view&amp;id=14LmPD22NaqEDeO6W_77xmRNWHM8Bs2zF"  alt="Parts Of Life_カレー" width="400" height="360">
+            <input  id="pol9" type="image" src="https://drive.google.com/uc?export=view&amp;id=1CcYjCUTUW_kW3m25TmeD8WCCKB29USyA"  alt="Parts Of Life_ドリア" width="400" height="360">
+            <input  id="pol10" type="image" src="https://drive.google.com/uc?export=view&amp;id=1ru-I_ZRlLSCYGfTm50qMDDBzvMJWavDX"  alt="Parts Of Life_フレンチトースト" width="400" height="360">
+            <input id="pol11" type="image" src="https://drive.google.com/uc?export=view&amp;id=11twr4EeQUrj-bHdWA0A7wPS_rHC9sqHE"  alt="Parts Of Life_サンド" width="400" height="360">
+          </div>
+
+          <div class="ウドン秋月"onclick='root( "福岡県北九州市小倉北区馬借2丁目1-22エイトピア花房 うどん秋月");Draw(3)'>
+            <input id="akiduki1" type="image" src="https://drive.google.com/uc?export=view&amp;id=14ElnjejI5YbLdn7UPmE9YsDMmEcIhxYz"  alt="ウドン秋月_カツ丼" width="400" height="360">
+            <input  id="akiduki2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1NlYdbZA1frPAPP5NuOJmmKdKMQjpJmet"  alt="ウドン秋月_漬物" width="400" height="360">
+            <input id="akiduki3" type="image" src="https://drive.google.com/uc?export=view&amp;id=13zrLUMKeHB_FKGUOqgVirv48rYj9cyaL"  alt="ウドン秋月_黒ゴマ坦々ウドン" width="400" height="360">
+            <input  id="akiduki4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1qF-UHzEsIFV0j-mhR35h61MqhjWl3JuQ"  alt="ウドン秋月_キノコウドン" width="400" height="360">
+          </div>
+
+          <div class="オーガニックカフェ Dio"onclick='root("福岡県北九州市小倉北区馬借1丁目16-15 Organic Cafe Dio" );Draw(4)'>
+            <input id="dio1" type="image" src="https://drive.google.com/uc?export=view&amp;id=1dKwcFubT0-RPkvGKbOX5ASt3M2lSB1hy"  alt="オーガニックカフェ Dio_メニュー" width="400" height="360">
+            <input  id="dio2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1uBfZQuL_0zkbRTWHDwKuIThMkEvdrzSt"  alt="オーガニックカフェ Dio_店内" width="400" height="360">
+            <input  id="dio3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1akX1xoQTJpIim5sOSa6EAjv8Ok6FxWkI"  alt="オーガニックカフェ Dio_ジュース_赤" width="400" height="360">
+            <input id="dio4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1Zsv_h5CVYFvJzIwtNPffenijzx9JyZKb"  alt="オーガニックカフェ Dio_ジュース_緑" width="400" height="360">
+            <input id="dio5" type="image" src="https://drive.google.com/uc?export=view&amp;id=1y-yh_Pgev3X0zgByxNZNfQP49AGm4krp"  alt="オーガニックカフェ Dio_サンドウィッチ" width="400" height="360">
+            <input id="dio6" type="image" src="https://drive.google.com/uc?export=view&amp;id=1oO3xWKS4D-yJ-mV2YoKHnCzxOUGnpOUI"  alt="オーガニックカフェ Dio_外装" width="400" height="360">
+          </div>
+
+          <div class="カフェ カクタス"onclick='root("福岡県北九州市小倉北区魚町3丁目3-12 カフェカクタス");Draw(5)'>
+            <input  id="cactus1" type="image" src="https://drive.google.com/uc?export=view&amp;id=1q1bsI5BSqzsrykI8tDmCkrY6ULcV1kf8"  alt="カフェ カクタス_メニュー" width="400" height="360">
+            <input  id="cactus2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1rd1OvogeyGQJkM1X4u_XGSm0AKih9Ej3"  alt="カフェ カクタス_ラテアート_猫" width="400" height="360">
+            <input  id="cactus3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1PjJjMqMi6AlVISu80SA1xyFRfRGAmaFC"  alt="カフェ カクタス_ラテアート_クモ" width="400" height="360">
+            <input  id="cactus4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1V-5JPkeBy6yXVaMo6bhTsUhjW_kBXCAd"  alt="カフェ カクタス_エスプレッソ" width="400" height="360">
+            <input  id="cactus5" type="image" src="https://drive.google.com/uc?export=view&amp;id=19tG7_D45T5KQHboZza_WQfcHWnW82Goe"  alt="カフェ カクタス_チーズケーキ" width="400" height="360">
+          </div>
+
+          <div class="ギタンジャリ"onclick='root("福岡県北九州市小倉北区室町2丁目11-4 ギタンジャリ");Draw(6)'>
+            <input  id="gitanjari1" type="image" src="https://drive.google.com/uc?export=view&amp;id=1Jo5x_0izgYLsj2Y7hqUYA9Y6PoZSRGaX"  alt="ギタンジャリ_看板" width="400" height="360">
+            <input  id="gitanjari2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1iyM8cMZWxFTxE65UKX1q_8XM7AX8Ko1j"  alt="ギタンジャリ_外装" width="400" height="360">
+            <input  id="gitanjari3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1AQolzlhai_TZpgZPO5bQANyWltX0pR2l"  alt="ギタンジャリ_内装" width="400" height="360">
+            <input id="gitanjari4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1eo_0ZZ0swPApqebGhhuzw3AViYxI0RmL"  alt="ギタンジャリ_内装_2" width="400" height="360">
+            <input  id="gitanjari5" type="image" src="https://drive.google.com/uc?export=view&amp;id=1Z_q8o3ZmycxM9AJHjZaJ2bjEIjoNzMYM"  alt="ギタンジャリ_メニュー" width="400" height="360">
+            <input id="gitanjari6" type="image" src="https://drive.google.com/uc?export=view&amp;id=1ae2VtXydza48s2ynK6rhHwn-iox2EwjO"  alt="ギタンジャリ_チキンカレー" width="400" height="360">
+            <input  id="gitanjari7" type="image" src="https://drive.google.com/uc?export=view&amp;id=1Dopg9uXD44N-b5a-juUAMqvjJOcunv0K"  alt="ギタンジャリ_キーマエビカレー" width="400" height="360">
+            <input  id="gitanjari8" type="image" src="https://drive.google.com/uc?export=view&amp;id=1fez1cX9Q83z_Ed3R1fLYP5wPo7grAXr5"  alt="ギタンジャリ_ナントカレー" width="400" height="360">
+            <input id="gitanjari9"  type="image" src="https://drive.google.com/uc?export=view&amp;id=1sHO6SPCfg30BW_B9iMeiP5TFOUPD2bnj"  alt="ギタンジャリ_Wカレー" width="400" height="360">
+            <input id="gitanjari10" type="image" src="https://drive.google.com/uc?export=view&amp;id=1_Szj1LvypMAIzLp0eDFKIroMbvZ3h8I-"  alt="ギタンジャリ_タンドリーチキンカレー" width="400" height="360">
+          </div>
+
+          <div class="サンドイッチファクトリー OCM"onclick='root( "福岡県北九州市小倉北区船場町3-6 OCM"):;Draw(7)'>
+            <input  id="ocm1" type="image" src="https://drive.google.com/uc?export=view&amp;id=1Ikb71C7eO3GFoe6Ybb1TW3mvTGFn3fOv"  alt="サンドイッチファクトリー OCM_看板" width="400" height="360">
+            <input  id="ocm2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1axgXWd4lzU4DlUOjYRHDCE1Il_lL18ab"  alt="サンドイッチファクトリー OCM_具材" width="400" height="360">
+            <input  id="ocm3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1wS91TzYyE8XXDBBXHhRV8sh31BEFDHlV"  alt="サンドイッチファクトリー OCM_内装" width="400" height="360">
+            <input  id="ocm4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1k8LRsqL6bvKvttLbXTMoRPirjn_NiYH0"  alt="サンドイッチファクトリー OCM_カツサンド" width="400" height="360">
+            <input  id="ocm5" type="image" src="https://drive.google.com/uc?export=view&amp;id=16J3OQNGrgxARF2WaGn0NWT2fEeo-TeqN"  alt="サンドイッチファクトリー OCM_ハムサンド" width="400" height="360">
+            <input  id="ocm6" type="image" src="https://drive.google.com/uc?export=view&amp;id=1_7fNkdJiTtrQ-EvHE30k-2mR-7ulrNDX"  alt="サンドイッチファクトリー OCM_肉サンド" width="400" height="360">
+            <input  id="ocm7" type="image" src="https://drive.google.com/uc?export=view&amp;id=1IJnSBk5dki4EghQzCrI4ipggusOsd3Lf"  alt="サンドイッチファクトリー OCM_クリームソーダ" width="400" height="360">
+            <input id="ocm8" type="image" src="https://drive.google.com/uc?export=view&amp;id=1KoNrMVEsa6Z9MpofzfOTZhQbAcKJK4-g"  alt="サンドイッチファクトリー OCM_ドリンク" width="400" height="360">
+          </div>
+
+          <div class="ダルマ堂"onclick='root("福岡県北九州市小倉北区魚町1丁目4-17 ダルマ堂" );Draw(8)'>
+            <input id="darumado1" type="image" src="https://drive.google.com/uc?export=view&amp;id=1Q3dRTL5MNOF8uzc6ZdDx81uhsOF1wyEv"  alt="ダルマ堂_外装" width="400" height="360">
+            <input  id="darumado2" type="image" src="https://drive.google.com/uc?export=view&amp;id=151zAGRbMYTMs5Z4zMJMmaK5iAqC1T0Qv"  alt="ダルマ堂_内装" width="400" height="360">
+            <input  id="darumado3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1DvL1rmsOv4r2y00zk7SsTeZDO5zOPV3p"  alt="ダルマ堂_サイン" width="400" height="360">
+            <input  id="darumado4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1KFbLsSS52OP_fFcISvtku1oAvsSJTewZ"  alt="ダルマ堂_焼キソバ" width="400" height="360">
+          </div>
+
+          <div class="ラ・ファリーナ"onclick='root("福岡県北九州市小倉北区馬借3丁目2-4 ラ・ファリーナ");Draw(9)'>
+            <input  id="farina1" type="image" src="https://drive.google.com/uc?export=view&amp;id=1pc1CXxaRn20n7aXaN-P-LWN_uZ-cDdr6"  alt="ラ・ファリーナ_牡蠣ノパスタ" width="400" height="360">
+            <input  id="farina2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1S1EsHptusBpi6LhBGlGHln2zIb5f4bjJ"  alt="ラ・ファリーナ_盛リ合ワセ" width="400" height="360">
+            <input  id="farina3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1euAvBfQfcF2u76-ADHOkuSvrcqcFQx94"  alt="ラ・ファリーナ_ポタージュ" width="400" height="360">
+            <input  id="farina4" type="image" src="https://drive.google.com/uc?export=view&amp;id=10mKfGLWR5gvnG_KDqPOuQcbQNuSjHxV6"  alt="ラ・ファリーナ_エビノパスタ" width="400" height="360">
+            <input id="farina5" type="image" src="https://drive.google.com/uc?export=view&amp;id=1qhBDTPqF-K9ZMVwIWexzSryIHujgxpRO"  alt="ラ・ファリーナ_オ肉トキノコ" width="400" height="360">
+            <input  id="farina6" type="image" src="https://drive.google.com/uc?export=view&amp;id=14V_RuJMubHhVZwFPQwhJbFVEg5mWvvu7"  alt="ラ・ファリーナ_デザート" width="400" height="360">
+          </div>
+
+          <div class="レストラン タカヤマ"onclick='root( "福岡県北九州市小倉北区京町2丁目1-5 レストランタカヤマ");Draw(10)'>
+            <input  id="takayama1" type="image" src="https://drive.google.com/uc?export=view&amp;id=1QPTh7j0OX42LZC7NzCC_-SNHXg2MJfG-"  alt="レストラン タカヤマ_外装" width="400" height="360">
+            <input id="takayama2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1dYWcasLgt-lQqA55gTLyYcDtiWyQBNY6"  alt="レストラン タカヤマ_外装_2" width="400" height="360">
+            <input id="takayama3"  type="image" src="https://drive.google.com/uc?export=view&amp;id=1N_MTS4vl6QOYXs-XbBu7TzRVk0I2GMTV" alt="レストラン タカヤマ_内装" width="400" height="360">
+            <input  id="takayama4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1V0bAW-kTNBBlv8agJmKkUFHhDwZ95BpA" alt="レストラン タカヤマ_メニュー" width="400" height="360">
+            <input id="takayama5" type="image" src="https://drive.google.com/uc?export=view&amp;id=16gi8GayJCMtiCZpF5nog-HFuUoZNoYSE" alt="レストラン タカヤマ_メニュー_2" width="400" height="360">
+            <input  id="takayama6" type="image" src="https://drive.google.com/uc?export=view&amp;id=1dLgLkKBP_ubOOMVQZ1leLm1U1E55171t" alt="レストラン タカヤマ_ポークソテー" width="400" height="360">
+            <input  id="takayama7" type="image" src="https://drive.google.com/uc?export=view&amp;id=1BGRStgO5Ar7XhOLJcHZx5qPZSNscndVA" alt="レストラン タカヤマ_ポークソテー日本風" width="400" height="360">
+            <input id="takayama8"  type="image" src="https://drive.google.com/uc?export=view&amp;id=1zsPcvaUvgu0B6O12FXkgLGL93z_WoISe" alt="レストラン タカヤマ_スパゲティナポリタン" width="400" height="360">
+            <input id="takayama9" type="image" src="https://drive.google.com/uc?export=view&amp;id=1q5TyHaFtumBM7Hw5lArharwXJr81P2zf" alt="レストラン タカヤマ_カツカレー" width="400" height="360">
+            <input  id="takayama10" type="image" src="https://drive.google.com/uc?export=view&amp;id=1xoctxrm4Hi-hOCvz4-84M99wFQPk_-tM" alt="レストラン タカヤマ_オムライス" width="400" height="360">
+            <input  id="takayama11" type="image" src="https://drive.google.com/uc?export=view&amp;id=1X5B3payRx5NHqDUb5_3HtQIsobLR9sds" alt="レストラン タカヤマ_カツレツ" width="400" height="360">
+          </div>
+
+          <div class="四方平"onclick='root("福岡県北九州市小倉北区京町1丁目2-22 四方平");Draw(11)'>
+            <input  id="sihohei1" type="image" src="https://drive.google.com/uc?export=view&amp;id=1B6AvEa99byn9_Jf2do-2bk8h7L0_7IwO" alt="四方平_外装" width="400" height="360">
+            <input id="sihohei2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1ALKjqkiWnYb5FJIMWdvrGexTVTaFXcmk" alt="四方平_ラーメン" width="400" height="360">
+            <input id="sihohei3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1hs60tzPI2jHIbjifatdAqAvodirc_QBo" alt="四方平_ラーメント鉄火巻" width="400" height="360">
+              <input  id="sihohei4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1cp-n7iX_BPrcL_AbWnERLqVXUQm6JXBw" alt="四方平_チャンポン" width="400" height="360">
+          </div>
+
+          <div class="中華ソバ藤王"onclick='root( "福岡県北九州市小倉北区魚町2丁目4-18 中華ソバ藤王");Draw(12)'>
+              <input  id="hujiou1" type="image" src="https://drive.google.com/uc?export=view&amp;id=17NYds7JbD0UvhaKNCcnOj5hjBdQVvcG_" alt="中華ソバ藤王_メニュー" width="400" height="360">
+              <input  id="hujiou2" type="image" src="https://drive.google.com/uc?export=view&amp;id=19BIyXEWhuxViVeoScpy-az-4ghhOgi72" alt="中華ソバ藤王_メニュー" width="400" height="360">
+              <input  id="hujiou3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1t9M4jdP8MwRv-AJFIJuo88OaUp4nKkVT" alt="中華ソバ藤王_中華ソバトチャーハン" width="400" height="360">
+            <input  id="hujiou4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1EmbfLa0n-ngP8k75VDBn0JXhDHkSnpPB" alt="中華ソバ藤王_チャンポン" width="400" height="360">
+          </div>
+
+          <div class="鉄板焼キバール ピアチェーレ"onclick='root( "福岡県北九州市小倉北区魚町2丁目6-5 鉄板焼キバール ピアチェーレ" );Draw(13)'>
+            <input  id="piacere1" type="image" src="https://drive.google.com/uc?export=view&amp;id=1Fw8qOnWQzHx7dTFQxuutkJiZoEitdtxo" alt="鉄板焼キバール ピアチェーレ_ハンバーグプレート" width="400" height="360">
+            <input  id="piacere2" type="image" src="https://drive.google.com/uc?export=view&amp;id=1a87ZXNK2aqQztzjqJTx67w8BdWNVJXF_" alt="鉄板焼キバール ピアチェーレ_カレーライス" width="400" height="360">
+            <input  id="piacere3" type="image" src="https://drive.google.com/uc?export=view&amp;id=1WX_uisWpvkoykXUalQDjurjZHyKQLxMM" alt="鉄板焼キバール ピアチェーレ_ベジタブルカレー" width="400" height="360">
+            <input id="piacere4" type="image" src="https://drive.google.com/uc?export=view&amp;id=1KLdMON4992CE0nB8_wolGfEH8K45xv0S" alt="鉄板焼キバール ピアチェーレ_ビュッフェ" width="400" height="360">
+            <input  id="piacere5" type="image" src="https://drive.google.com/uc?export=view&amp;id=1XVr0vG6yQhffSLeYCIOWryXJk2R79Qr5" alt="鉄板焼キバール ピアチェーレ_メニュー" width="400" height="360">
+        </div>
+        </div>
+
+
+
+
+  <!--</div>-->
+</div>
+
+
+   <div>
+      <center><p id="div0" style = "text-align:left; border-width:2px; border-color:black; border-style:solid; width:600px; height:500px;">
+         ここに情報が表示されます
+        </p></center>
+   </div>
+
+   <div class="button" style="margin:30px;">
+     <span class="ate" style="float:right;"><i class="fas fa-utensils fa-5x"></i></span>
+   </div>
+
+   <div id="map"></div>
+
+   <script>
+
+   bubbly({
+    colorStart: '#fff4e6',
+    colorStop: '#ffe9e4',
+    blur: 1,
+    compose: 'source-over',
+    bubbleFunc: () => `hsla(${Math.random() * 50}, 100%, 50%, .3)`
+  });
+
+
+    function initMap()
+  {
+      var myLatLng = {lat: 33.88698, lng: 130.882576};
+      var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 20,
+          center: myLatLng
+      });
+
+      var geocoder = new google.maps.Geocoder();
+     var infoWindow = new google.maps.InfoWindow({map: map});
+       // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+
+          map.setCenter(pos);
+          var marker = new google.maps.Marker({
+          position: pos,
+          map: map
+      });
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+
+  }
+    function root(shop)
+  {
+  var DS = new google.maps.DirectionsService();
+var DR = new google.maps.DirectionsRenderer();
+var map = new google.maps.Map(document.getElementById('map'), {
+center:{lat: 33.88698, lng: 130.882576} ,
+zoom: 15,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+});
+var geocoder = new google.maps.Geocoder();
+     var infoWindow = new google.maps.InfoWindow({map: map});
+       // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+
+          /* map ヲ DirectionsRendererオブジェクトノsetMap()ヲ使ッテ関連付ケ */
+    DR.setMap(map);
+    var from = pos;
+    var to = shop
+    var request = {
+    origin:from,
+    destination:to ,
+    travelMode: google.maps.TravelMode.WALKING
+    };
+    DS.route(request, function(result, status) {
+    DR.setDirections(result);
+  });
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+
+
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+  }
+    </script>
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlDcO6J05Iy5KNhMZ6B12JnjBRU6lScZs&callback=initMap"
+    async defer></script>
+  </body>
+  </html>
