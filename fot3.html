@@ -72,6 +72,7 @@
    </div>
 
    <script>
+
 switch(para){
   case '0':
     document.write(
@@ -85,7 +86,6 @@ switch(para){
           '</div>',
     '</div>'
   );
-    initMap("福岡県北九州市小倉北区京町4丁目5-1 greengreenvillage");
     break;
   case '1':
     document.write(
@@ -105,7 +105,6 @@ switch(para){
           '</div>',
     '</div>'
     );
-    initMap("福岡県北九州市小倉北区馬借1丁目10-2 BUTABARキレンジ家");
     break;
     case '2':
       document.write(
@@ -125,7 +124,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区魚町3丁目1-11 Parts Of Life");
       break;
     case '3':
     document.write(
@@ -138,7 +136,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区馬借2丁目1-22エイトピア花房 うどん秋月");
       break;
       case '4':
         document.write(
@@ -153,7 +150,6 @@ switch(para){
            '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区馬借1丁目16-15 Organic Cafe Dio");
       break;
       case '5':
         document.write(
@@ -167,7 +163,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区魚町3丁目3-12 カフェカクタス");
       break;
       case '6':
         document.write(
@@ -186,7 +181,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区室町2丁目11-4 ギタンジャリ");
       break;
       case '7':
         document.write(
@@ -203,7 +197,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区船場町3-6 OCM");
       break;
       case '8':
         document.write(
@@ -216,7 +209,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区魚町1丁目4-17 ダルマ堂");
       break;
       case '9':
         document.write(
@@ -231,7 +223,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区馬借3丁目2-4 ラ・ファリーナ");
       break;
       case '10':
         document.write(
@@ -251,7 +242,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区京町2丁目1-5 レストランタカヤマ");
       break;
       case '11':
         document.write(
@@ -264,7 +254,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区京町1丁目2-22 四方平");
       break;
       case '12':
         document.write(
@@ -277,7 +266,6 @@ switch(para){
           '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区魚町2丁目4-18 中華ソバ藤王");
       break;
       case '13':
         document.write(
@@ -291,10 +279,8 @@ switch(para){
         '</div>',
          '</div>'
        );
-      initMap("福岡県北九州市小倉北区魚町2丁目6-5 鉄板焼キバール ピアチェーレ");
       break;
-
-
+      initMap();
 }
    bubbly({
     colorStart: '#fff4e6',
@@ -305,10 +291,11 @@ switch(para){
   });
 
 
-    function initMap(shop)
+    function initMap()
   {
-    shop="福岡県北九州市小倉北区魚町2丁目6-5 鉄板焼キバール ピアチェーレ";
-    var DS = new google.maps.DirectionsService();
+
+var  shop = dat[para].address;
+var DS = new google.maps.DirectionsService();
 var DR = new google.maps.DirectionsRenderer();
 var map = new google.maps.Map(document.getElementById('map'), {
 center:{lat: 33.88698, lng: 130.882576} ,
